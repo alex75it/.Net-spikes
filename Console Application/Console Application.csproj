@@ -7,8 +7,8 @@
     <ProjectGuid>{AF6AC21F-AE79-425E-BE73-E5155EE4A9A6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Console_Application</RootNamespace>
-    <AssemblyName>Console Application</AssemblyName>
+    <RootNamespace>Spikes.Console</RootNamespace>
+    <AssemblyName>Spikes.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,8 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Car.cs" />
+    <Compile Include="Entities\IEngine.cs" />
+    <Compile Include="Entities\PetrolEngine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

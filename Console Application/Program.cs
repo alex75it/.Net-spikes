@@ -4,14 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console_Application
+namespace Spikes.Console
 {
 	public class Program
 	{
 		static void Main(string[] args)
 		{
-			Console.Write("\n\nPress any key to close ");
-			Console.ReadKey();
+			Runner.Run();
+
+
+			System.Console.Write("\n\nPress any key to close ");
+			System.Console.ReadKey();
 
 		}
 	}
