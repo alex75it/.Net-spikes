@@ -7,6 +7,7 @@ using Moq;
 using NUnit.Framework;
 using Spikes.Console.Entities;
 using Should;
+using Spikes.Console.Services;
 
 namespace Tests
 {
@@ -15,12 +16,14 @@ namespace Tests
     {
 
 		[Test]
-		public void Start_When_IsNight_Should_TurnOnBeans()
+		public void Start_When_IsDark_Should_TurnOnBeans()
 		{
 			string model = "model";
 			IEngine engine = new Mock<IEngine>().Object;
+			Mock<IDaylightService> daylightService = new Mock<IDaylightService>();
+			daylightService.Setup(s => s.IsDark()).Returns(true);
 
-			var car = new Car(model, engine);
+			var car = new Car(model, engine, daylightService.Object);
 
 			car.Start();
 

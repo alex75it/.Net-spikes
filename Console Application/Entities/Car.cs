@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Spikes.Console.Services;
 
 namespace Spikes.Console.Entities
 {
 	public class Car
 	{
-				
+		private readonly IDaylightService daylightService;
 
 		public string Model { get; set; }
 
@@ -16,17 +17,18 @@ namespace Spikes.Console.Entities
 		public bool BeansAreOn { get; private set; }
 
 
-		public Car(string model, IEngine engine)
+		public Car(string model, IEngine engine, IDaylightService daylightService)
 		{
 			Model = model;
 			Engine = engine;
+			this.daylightService = daylightService;
 		}
 
 		public void Start()
 		{
 			Engine.Start();
 
-			if (DateTime.Now.Hour < 6 || DateTime.Now.Hour > 19)
+			if (daylightService.IsDark())
 				TurnOnBeans();
 	}
 		
