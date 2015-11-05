@@ -30,6 +30,21 @@ namespace Tests
 			car.BeansAreOn.ShouldBeTrue();
 		}
 
+		[Test]
+		public void Start_When_IsNotDark_Should_TurnOffBeans()
+		{
+			string model = "model";
+			IEngine engine = new Mock<IEngine>().Object;
+			Mock<IDaylightService> daylightService = new Mock<IDaylightService>();
+			daylightService.Setup(s => s.IsDark()).Returns(false);
+
+			var car = new Car(model, engine, daylightService.Object);
+
+			car.Start();
+
+			car.BeansAreOn.ShouldBeFalse();
+		}
+
 
     }
 }
