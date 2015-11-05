@@ -25,14 +25,13 @@ namespace Spikes.Console.Entities
 		public void Start()
 		{
 			Engine.Start();
-		}
 
-
+			if (DateTime.Now.Hour < 6 || DateTime.Now.Hour > 19)
+				TurnOnBeans();
+	}
+		
 		public void TurnOnBeans() { BeansAreOn = true; System.Console.WriteLine("Turn on beans"); }
 		public void TurnOffBeans() { BeansAreOn = false; System.Console.WriteLine("Turn off beans"); }
-
-
-
-
+		
 	}
 }

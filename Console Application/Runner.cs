@@ -16,9 +16,6 @@ namespace Spikes.Console
 
 			Car car = new Car("Opel Corsa", engine);
 			car.Start();
-
-			if(DateTime.Now.Hour < 6 || DateTime.Now.Hour > 19)
-				car.TurnOnBeans();
 			
 		}
 
