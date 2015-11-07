@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 using Spikes.Console.Entities;
 using Spikes.Console.Services;
 
-namespace Spikes.Console
+namespace Spikes.Console.Runners
 {
-	public class Runner
+	public class CarRunner :IRunner		
 	{
-		public static void Run()
+		public void Run()
 		{
 
 			IEngine engine = new PetrolEngine();
