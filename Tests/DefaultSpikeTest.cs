@@ -11,7 +11,6 @@ namespace Tests
     [TestFixture]
     public class DefaultSpikeTest
     {
-
         [Test]
         public void Run()
         {

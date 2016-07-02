@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Ninject;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,11 +11,18 @@ namespace Spikes.Console
     {
         static void Main(string[] args)
         {
-            SpikeRunner spikeRunner = new SpikeRunner(new DefaultSpike());
+            IocInstaller.Initialize();
+
+            SpikeRunner spikeRunner = GetSpikeRunner();
             spikeRunner.RunSpike();
 
             System.Console.Write("\n\nPress any key to close ");
             System.Console.ReadKey();
+        }
+
+        private static SpikeRunner GetSpikeRunner()
+        {
+            return IocInstaller.CreateSpikeRunner();
         }
     }
 }
