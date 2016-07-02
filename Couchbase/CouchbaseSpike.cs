@@ -17,7 +17,7 @@ namespace Spikes.Couchbase
 
         public void PopulateDatabase(int recordNumber)
         {
-            throw new NotImplementedException();
+            // 
         }
     }
 }
