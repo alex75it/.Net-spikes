@@ -1,22 +1,23 @@
 ﻿using NUnit.Framework;
-using Spikes.Common;
+using Spikes.Couchbase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spikes.Tests
+
+namespace Tests.Couchbase
 {
     [TestFixture]
-    public class DefaultSpikeTest
+    public class CouchbaseSpikeTest
     {
         [Test]
         public void Run()
         {
-            DefaultSpike spike = new DefaultSpike();
+            CouchbaseSpike spike = new CouchbaseSpike();
             spike.Run();
-            Assert.Pass();
         }
+
     }
 }

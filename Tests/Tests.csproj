@@ -7,10 +7,11 @@
     <ProjectGuid>{78CA42DE-5DF7-4C65-B0DF-DC216249F6C3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Tests</RootNamespace>
-    <AssemblyName>Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <RootNamespace>Spikes.Tests</RootNamespace>
+    <AssemblyName>Spikes.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -63,6 +64,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Couchbase\CouchbaseSpikeTest.cs" />
     <Compile Include="DefaultSpikeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -73,9 +75,13 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Console Application\Console Application.csproj">
-      <Project>{af6ac21f-ae79-425e-be73-e5155ee4a9a6}</Project>
-      <Name>Console Application</Name>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{6dc10d9e-ee85-4171-a77e-fb83689cb35c}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Couchbase\Couchbase.csproj">
+      <Project>{e294e3d7-b7e4-4f85-9312-3530f102128f}</Project>
+      <Name>Couchbase</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
