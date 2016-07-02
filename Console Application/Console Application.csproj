@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
-      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    <Reference Include="nunit.framework, Version=3.4.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.4.1\lib\net45\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Should, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -50,18 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RunnerFactory.cs" />
-    <Compile Include="Runners\Challenge9Runner.cs" />
-    <Compile Include="Entities\Car.cs" />
-    <Compile Include="Entities\IEngine.cs" />
-    <Compile Include="Entities\PetrolEngine.cs" />
+    <Compile Include="DefaultSpike.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Runners\CarRunner.cs" />
-    <Compile Include="Runners\IRunner.cs" />
-    <Compile Include="Runners\BaseRunner.cs" />
-    <Compile Include="Services\DaylightService.cs" />
-    <Compile Include="Services\IDaylightService.cs" />
+    <Compile Include="ISpike.cs" />
+    <Compile Include="SpikeRunner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

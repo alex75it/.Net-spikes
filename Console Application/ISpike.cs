@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spikes.Console.Entities
+namespace Spikes.Console
 {
-	public interface IEngine
-	{
-		void Start();
+	public interface ISpike
+	{		    
+		void Run();
 	}
 }
