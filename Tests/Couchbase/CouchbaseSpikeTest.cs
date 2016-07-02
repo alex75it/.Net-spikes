@@ -3,13 +3,12 @@ using Spikes.Couchbase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Couchbase;
 using Couchbase.IO;
 using Couchbase.Configuration.Client;
 using System.ServiceProcess;
+using Couchbase.Core;
 
 namespace Tests.Couchbase
 {
@@ -19,11 +18,13 @@ namespace Tests.Couchbase
         private CouchbaseSpike spike;
         private string CouchbaseServiceName = "CouchbaseServer";
         private const string BUCKET = "Spike";
+        private const string designDoc = "Views";
+        private const string allKeysView = "AllKeys";
 
         [SetUp]
         public void SetUp()
         {
-            EnsureServiceIsRunning();
+            EnsureServiceIsRunning();            
             spike = new CouchbaseSpike();
         }
 
@@ -49,15 +50,53 @@ namespace Tests.Couchbase
         [Test]
         public void PopulateDatabase_should_WriteRecords()
         {
-            int recordNumber = 1;
+            ClearBucket();
+
+            int recordNumber = 10;
             spike.PopulateDatabase(recordNumber);
 
-            object items = GetRecords();
-            Assert.IsTrue(items != null);
+            var keys = GetAllKeys();
+
+            Assert.AreEqual(recordNumber, keys.Count());
         }
 
         #region helper methods
-        private object GetRecords()
+
+        private void ClearBucket()
+        {
+            var keys = GetAllKeys();
+            using (IBucket bucket = GetBucket())
+            {                
+                foreach (var key in keys)
+                {
+                    bucket.Remove(key);
+                }
+            }
+
+            System.Threading.Thread.Sleep(500);            
+        }
+
+        private IBucket GetBucket()
+        {
+            return new Cluster(GetConfiguration()).OpenBucket(BUCKET);
+        }
+
+        private IEnumerable<string> GetAllKeys()
+        {
+            IList<string> keys = new List<string>();
+            using (var bucket = GetBucket())
+            {
+                var view = bucket.CreateQuery(designDoc, allKeysView);
+                var result = bucket.Query<Document<dynamic>>(view);
+                foreach (var row in result.Rows)
+                {
+                    keys.Add(row.Id);
+                }
+            }
+            return keys;
+        }
+
+        private object GetRecord()
         {
             try
             {
