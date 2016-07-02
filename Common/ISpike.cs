@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Spikes.Common
 {
-	public interface ISpike
-	{		    
-		void Run();
-	}
+    public interface ISpike
+    {		    
+        void Run();
+        string GetName();
+    }
 }

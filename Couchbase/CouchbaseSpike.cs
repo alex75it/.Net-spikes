@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Spikes.Couchbase
 {
-    public class CouchbaseSpike : ISpike
+    public class CouchbaseSpike : SpikeBase
     {
         public void Run()
         {

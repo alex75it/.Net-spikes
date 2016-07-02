@@ -15,9 +15,16 @@ namespace Spikes.Console
             this.spike = spike;
         }
 
+        public object SpikeName { get { return spike.GetName(); } }
+                public bool IsDefaultSpike
+        {
+            get { return spike is DefaultSpike; }
+        }
+
         public void RunSpike()
         {
             spike.Run();
         }
+
     }
 }
