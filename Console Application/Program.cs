@@ -25,7 +25,7 @@ namespace Spikes.Console
                 );
             }
 
-            System.Console.Write("\n\nPress any key to close ");
+            System.Console.Write("\n\nPress any key to close...");
             System.Console.ReadKey();
         }
 

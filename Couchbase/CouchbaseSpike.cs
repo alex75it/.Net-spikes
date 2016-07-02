@@ -9,9 +9,15 @@ namespace Spikes.Couchbase
 {
     public class CouchbaseSpike : SpikeBase
     {
-        public void Run()
+        public new void Run()
         {
-            
+            int recordNumber = 1000;
+            PopulateDatabase(recordNumber);               
+        }
+
+        public void PopulateDatabase(int recordNumber)
+        {
+            throw new NotImplementedException();
         }
     }
 }
