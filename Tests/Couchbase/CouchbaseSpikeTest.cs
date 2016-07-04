@@ -7,8 +7,10 @@ using System.Linq;
 using Couchbase;
 using Couchbase.IO;
 using Couchbase.Configuration.Client;
+using Couchbase.Views;
 using System.ServiceProcess;
 using Couchbase.Core;
+using System.Threading;
 
 namespace Tests.Couchbase
 {
@@ -51,11 +53,11 @@ namespace Tests.Couchbase
         public void PopulateDatabase_should_WriteRecords()
         {
             ClearBucket();
-
-            int recordNumber = 10;
+                       
+            int recordNumber = 1000;
             spike.PopulateDatabase(recordNumber);
 
-            var keys = GetAllKeys();
+            var keys = GetAllKeys();            
 
             Assert.AreEqual(recordNumber, keys.Count());
         }
@@ -72,8 +74,6 @@ namespace Tests.Couchbase
                     bucket.Remove(key);
                 }
             }
-
-            System.Threading.Thread.Sleep(500);            
         }
 
         private IBucket GetBucket()
@@ -81,13 +81,15 @@ namespace Tests.Couchbase
             return new Cluster(GetConfiguration()).OpenBucket(BUCKET);
         }
 
-        private IEnumerable<string> GetAllKeys()
+        private ICollection<string> GetAllKeys()
         {
             IList<string> keys = new List<string>();
             using (var bucket = GetBucket())
             {
                 var view = bucket.CreateQuery(designDoc, allKeysView);
+                view.Stale(StaleState.False);
                 var result = bucket.Query<Document<dynamic>>(view);
+                
                 foreach (var row in result.Rows)
                 {
                     keys.Add(row.Id);
