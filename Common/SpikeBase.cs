@@ -12,10 +12,6 @@ namespace Spikes.Common
             return this.GetType().Name;
         }
 
-        public void Run()
-        {
-            // TODO: Why I have to define this?
-            // empty
-        }
+        public abstract void Run();
     }
 }

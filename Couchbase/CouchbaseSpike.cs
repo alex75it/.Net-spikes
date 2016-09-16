@@ -13,7 +13,7 @@ namespace Spikes.Couchbase
     {
         private const string BUCKET = "Spike";
 
-        public new void Run()
+        public override void Run()
         {
             int recordNumber = 1000;
             PopulateDatabase(recordNumber);               
