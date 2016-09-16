@@ -68,5 +68,19 @@ namespace Spikes.Tests
 
             Assert.Throws<ArgumentException>(() => rack.AddBall(1));
         }
+
+        [Test]
+        public void Balls_should_returnOrderedListOfBalls()
+        {
+            R.Rack rack = new R.Rack();
+
+            rack.AddBall(3);
+            rack.AddBall(2);
+            rack.AddBall(1);
+
+            var balls = rack.Balls().ToList();
+            balls[0].ShouldEqual(1);
+            balls[1].ShouldEqual(2);
+        }
     }
 }
