@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Rack
 {
-    public class RackSpike :Spikes.Common.SpikeBase
+    public class RackSpike : Spikes.Common.SpikeBase
     {
+        public override void Run()
+        {
+            Console.WriteLine("run");
+        }
     }
 }
