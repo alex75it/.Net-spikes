@@ -36,12 +36,12 @@ namespace Spikes.Tests
         [Test]
         [TestCase(0)]
         [TestCase(50)]
-        public void AddBall_when_BallisNotInTheValidRange_should_RaiseException(int ball)
+        public void AddBall_when_BallisNotInTheValidRange_should_RaiseArgumentOutOfRangeException(int ball)
         {
             // rule "Balls must be numbered between 1 and 49"
             R.Rack rack = new R.Rack();
 
-            Assert.Throws<Exception>( () => rack.AddBall(ball));
+            Assert.Throws<ArgumentOutOfRangeException>( () => rack.AddBall(ball));
         }
 
         [Test]
@@ -59,15 +59,14 @@ namespace Spikes.Tests
         }
 
         [Test]
-        public void AddBall_when_ABallAlreadyExists()
+        public void AddBall_when_ABallAlreadyExists_should_RaiseArgumentException()
         {
             // rule "The same ball must not be added more than once"
             R.Rack rack = new R.Rack();
 
             rack.AddBall(1);
 
-            Assert.Throws<Exception>(() => rack.AddBall(1));
+            Assert.Throws<ArgumentException>(() => rack.AddBall(1));
         }
-
     }
 }
