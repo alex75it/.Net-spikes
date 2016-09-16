@@ -11,7 +11,7 @@ namespace Rack
         private HashSet<int> balls;
         private const int SIZE = 7;
         private const int BALL_MIN = 1;
-        private const int BALL_MAX = 49;
+        private const int BALL_MAX = 49;       
 
         public Rack()
         {
@@ -33,7 +33,28 @@ namespace Rack
 
         public IEnumerable<int> Balls()
         {
-            return balls;
+            return Sort(balls);
+        }
+        internal IEnumerable<int> Sort(IEnumerable<int> balls)
+        {
+            int[] orderedBalls = balls.ToArray();
+            int startPosition = 0;
+            while (startPosition < orderedBalls.Length - 1)
+            for (int position = startPosition; position < orderedBalls.Length-1; position++)
+            {
+                // check if item[x] is bigger than item[x+1] and switch values if true
+                if (orderedBalls[position] > orderedBalls[position + 1])
+                {
+                    int temp = orderedBalls[position + 1]; // store B apart
+                    orderedBalls[position + 1] = orderedBalls[position]; // move A in B
+                    orderedBalls[position] = temp; // move B in A
+                }
+                else
+                {
+                    startPosition++;
+                }
+            }
+            return orderedBalls;
         }
     }
 }

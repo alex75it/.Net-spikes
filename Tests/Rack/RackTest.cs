@@ -22,7 +22,7 @@ namespace Spikes.Tests
         }
 
         [Test]
-        public void WhenAddABall_BallsREturnABall()
+        public void WhenAddABall_BallsReturnABall()
         {
             R.Rack rack = new R.Rack();
 
@@ -70,7 +70,7 @@ namespace Spikes.Tests
         }
 
         [Test]
-        public void Balls_should_returnOrderedListOfBalls()
+        public void Balls_should_ReturnOrderedListOfBalls()
         {
             R.Rack rack = new R.Rack();
 
