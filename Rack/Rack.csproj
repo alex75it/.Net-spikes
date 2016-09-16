@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IRack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rack.cs" />
     <Compile Include="RackSpike.cs" />
   </ItemGroup>
   <ItemGroup>
