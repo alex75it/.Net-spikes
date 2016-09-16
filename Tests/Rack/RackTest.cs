@@ -45,7 +45,7 @@ namespace Spikes.Tests
         }
 
         [Test]
-        public void AddBall_when_RackIsFull_should_RaiseException(int ball)
+        public void AddBall_when_RackIsFull_should_RaiseException()
         {
             // rule "There must not be more than 7 balls on the rack"
             int size = 7;
@@ -55,7 +55,7 @@ namespace Spikes.Tests
             for (int counter = 1; counter <= size; counter++)
                 rack.AddBall(counter);
 
-            Assert.Throws<Exception>(() => rack.AddBall(ball));
+            Assert.Throws<Exception>(() => rack.AddBall(size+1));
         }
 
         [Test]
