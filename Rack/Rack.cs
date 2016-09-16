@@ -8,6 +8,12 @@ namespace Rack
 {
     public class Rack : IRack
     {
+        private HashSet<int> balls;
+
+        public Rack()
+        {
+            this.balls = new HashSet<int>();
+        }
         public void AddBall(int ball)
         {
             throw new NotImplementedException();
@@ -15,7 +21,7 @@ namespace Rack
 
         public IEnumerable<int> Balls()
         {
-            throw new NotImplementedException();
+            return balls;
         }
     }
 }

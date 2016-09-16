@@ -84,6 +84,7 @@
     <Compile Include="Couchbase\CouchbaseSpikeTest.cs" />
     <Compile Include="DefaultSpikeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rack\RackTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -99,6 +100,10 @@
     <ProjectReference Include="..\Couchbase\Couchbase.csproj">
       <Project>{e294e3d7-b7e4-4f85-9312-3530f102128f}</Project>
       <Name>Couchbase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rack\Rack.csproj">
+      <Project>{fec5ee9a-c053-4720-ba6c-937435dafbb8}</Project>
+      <Name>Rack</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
