@@ -16,8 +16,8 @@ namespace Spikes.Console
         public static void Initialize()
         {
             kernel = new StandardKernel();
-            kernel.Bind<ISpike>().To<DefaultSpike>();  
-            //kernel.Bind<ISpike>().To<CouchbaseSpike>();
+            //kernel.Bind<ISpike>().To<DefaultSpike>();  
+            kernel.Bind<ISpike>().To<CouchbaseSpike>();
         }
 
         public static SpikeRunner CreateSpikeRunner()

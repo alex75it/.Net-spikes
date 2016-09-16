@@ -8,6 +8,8 @@ namespace Spikes.Common.Entities
 {
     public class User
     {
+        public const string KEY = "user.";
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
 

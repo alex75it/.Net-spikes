@@ -1,6 +1,7 @@
 ﻿using Couchbase;
 using Couchbase.Configuration.Client;
 using Spikes.Common;
+using Spikes.Common.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,11 @@ namespace Spikes.Couchbase
     {
         private const string BUCKET = "Spike";
 
-        public new void Run()
+        public override void Run()
         {
             int recordNumber = 1000;
-            PopulateDatabase(recordNumber);               
+            //PopulateDatabase(recordNumber);  
+            AddUsers();           
         }
 
         public void PopulateDatabase(int recordNumber)
@@ -28,6 +30,25 @@ namespace Spikes.Couchbase
                 foreach(var doc in documents)
                     bucket.Upsert(doc);
             }
+        }
+
+        public void AddUsers()
+        {
+            IEnumerable<User> users = new User[] {
+                new User("Alessandro", "Piccione") { Email = "alex@email.com" },
+                new User("Firstname", "Lastname") { Email = "user1@email.com" },
+                new User("Firstname", "Lastname") { Email = "user2@email.com" },
+            };
+
+            using (var bucket = new Cluster(GetConfiguration()).OpenBucket(BUCKET))
+            {
+                foreach (var user in users)
+                {
+                    Document<User> document = CreateDocumentFromUser(user);
+                    bucket.Upsert(document);
+                }
+            }
+
         }
 
         #region private methods
@@ -49,6 +70,15 @@ namespace Spikes.Couchbase
             }
 
             return documents;
+        }
+
+        private static Document<User> CreateDocumentFromUser(User user)
+        {
+            Document<User> document = new Document<User>() {
+                Id = user.Id,
+                Content = user
+            };
+            return document;
         }
 
         private ClientConfiguration GetConfiguration()
