@@ -9,6 +9,7 @@ namespace Rack
     public class Rack : IRack
     {
         private HashSet<int> balls;
+        private const int SIZE = 7;
 
         public Rack()
         {
