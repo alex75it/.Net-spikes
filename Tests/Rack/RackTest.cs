@@ -20,5 +20,17 @@ namespace Spikes.Tests
 
             rack.Balls().ShouldBeEmpty();
         }
+
+        [Test]
+        public void WhenAddABall_BallsREturnABall()
+        {
+            R.Rack rack = new R.Rack();
+
+            rack.AddBall(1);
+
+            rack.Balls().ShouldNotBeEmpty();
+            rack.Balls().Count().ShouldEqual(1);
+            rack.Balls().First().ShouldEqual(1);               
+        }
     }
 }

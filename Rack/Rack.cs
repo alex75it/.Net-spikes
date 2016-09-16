@@ -16,7 +16,7 @@ namespace Rack
         }
         public void AddBall(int ball)
         {
-            throw new NotImplementedException();
+            balls.Add(ball);
         }
 
         public IEnumerable<int> Balls()
