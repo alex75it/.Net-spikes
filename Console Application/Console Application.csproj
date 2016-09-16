@@ -73,6 +73,10 @@
       <Project>{e294e3d7-b7e4-4f85-9312-3530f102128f}</Project>
       <Name>Couchbase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Rack\Rack.csproj">
+      <Project>{fec5ee9a-c053-4720-ba6c-937435dafbb8}</Project>
+      <Name>Rack</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
