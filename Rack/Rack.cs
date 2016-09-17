@@ -8,15 +8,13 @@ namespace Rack
 {
     public class Rack : IRack
     {
-        private HashSet<int> balls;
+       
         private const int SIZE = 7;
         private const int BALL_MIN = 1;
-        private const int BALL_MAX = 49;       
+        private const int BALL_MAX = 49;   
+        private int[] balls = new int[SIZE];
+        private int emptySlot = 0;
 
-        public Rack()
-        {
-            this.balls = new HashSet<int>();
-        }
         public void AddBall(int ball)
         {
             if (ball < BALL_MIN || ball > BALL_MAX)
@@ -25,36 +23,25 @@ namespace Rack
             if (balls.Contains(ball))
                 throw new ArgumentException(string.Format($"The same ball must not be added more than once. Rack already contains the ball {ball}."));
 
-            if (balls.Count == SIZE)
+            if (emptySlot == SIZE)
                 throw new Exception($"There must not be more than {SIZE} balls on the rack.");
 
-            balls.Add(ball);
+            // insert the ball in the first empty slot or in the correct position
+            // put the ball in the last empty slot and than move it "down" moving the other balls if present
+
+            int position = emptySlot;
+            while (position > 0 && balls[position-1] > ball)
+            {
+                balls[position] = balls[position - 1]; // move ball up
+                position--;
+            }
+            balls[position] = ball;
+            emptySlot++;     
         }
 
         public IEnumerable<int> Balls()
         {
-            return Sort(balls);
-        }
-        internal IEnumerable<int> Sort(IEnumerable<int> balls)
-        {
-            int[] orderedBalls = balls.ToArray();
-            int startPosition = 0;
-            while (startPosition < orderedBalls.Length - 1)
-            for (int position = startPosition; position < orderedBalls.Length-1; position++)
-            {
-                // check if item[x] is bigger than item[x+1] and switch values if true
-                if (orderedBalls[position] > orderedBalls[position + 1])
-                {
-                    int temp = orderedBalls[position + 1]; // store B apart
-                    orderedBalls[position + 1] = orderedBalls[position]; // move A in B
-                    orderedBalls[position] = temp; // move B in A
-                }
-                else
-                {
-                    startPosition++;
-                }
-            }
-            return orderedBalls;
+            return balls.TakeWhile(b => b != 0);
         }
     }
 }
