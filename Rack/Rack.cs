@@ -7,13 +7,15 @@ using System.Threading.Tasks;
 namespace Rack
 {
     public class Rack : IRack
-    {
-       
+    {       
         private const int SIZE = 7;
         private const int BALL_MIN = 1;
         private const int BALL_MAX = 49;   
-        private int[] balls = new int[SIZE];
-        private int emptySlot = 0;
+        private int[] balls = new int[0];
+        public IEnumerable<int> Balls()
+        {
+            return balls;
+        }
 
         public void AddBall(int ball)
         {
@@ -23,25 +25,31 @@ namespace Rack
             if (balls.Contains(ball))
                 throw new ArgumentException(string.Format($"The same ball must not be added more than once. Rack already contains the ball {ball}."));
 
-            if (emptySlot == SIZE)
+            if (balls.Length == SIZE)
                 throw new Exception($"There must not be more than {SIZE} balls on the rack.");
 
-            // insert the ball in the first empty slot or in the correct position
-            // put the ball in the last empty slot and than move it "down" moving the other balls if present
+            AddNewBallAndSortBalls(ball);
+        }
 
-            int position = emptySlot;
-            while (position > 0 && balls[position-1] > ball)
+        private void AddNewBallAndSortBalls(int ball)
+        {
+            // resize the array and put the ball in the right position moving the other balls accordingly
+            // start from the last position ang go "down"
+
+            int[] newBalls = new int[balls.Length + 1];
+            Array.Copy(balls, newBalls, balls.Length);
+            int position = newBalls.Length - 1;
+            newBalls[position] = ball; // put new ball at the end
+
+            // move new ball in the right position            
+            while (position > 0 && newBalls[position - 1] > ball)
             {
-                balls[position] = balls[position - 1]; // move ball up
+                newBalls[position] = newBalls[position - 1]; // move up to make space
+                newBalls[position - 1] = ball;
                 position--;
             }
-            balls[position] = ball;
-            emptySlot++;     
-        }
 
-        public IEnumerable<int> Balls()
-        {
-            return balls.TakeWhile(b => b != 0);
-        }
+            balls = newBalls;
+        } 
     }
 }
