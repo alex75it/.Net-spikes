@@ -26,17 +26,12 @@ namespace Rack
             if (emptySlot == SIZE)
                 throw new Exception($"There must not be more than {SIZE} balls on the rack.");
 
-            // insert the ball in the first empty slot or in the correct position
-            // put the ball in the last empty slot and than move it "down" moving the other balls if present
-
+            // insert the ball in the correct position (bubbling other balls up) or in the empty slot
             int position = emptySlot;
             while (position > 0 && balls[position-1] > ball)
-            {
-                balls[position] = balls[position - 1]; // move ball up
-                position--;
-            }
+                balls[position--] = balls[position]; // move ball up
             balls[position] = ball;
-            emptySlot++;     
+            emptySlot++;
         }
 
         public IEnumerable<int> Balls()
