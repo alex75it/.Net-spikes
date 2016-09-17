@@ -34,20 +34,18 @@ namespace Rack
         private void AddNewBallAndSortBalls(int ball)
         {
             // resize the array and put the ball in the right position moving the other balls accordingly
-            // start from the last position ang go "down"
 
             int[] newBalls = new int[balls.Length + 1];
             Array.Copy(balls, newBalls, balls.Length);
             int position = newBalls.Length - 1;
-            newBalls[position] = ball; // put new ball at the end
 
             // move new ball in the right position            
             while (position > 0 && newBalls[position - 1] > ball)
             {
-                newBalls[position] = newBalls[position - 1]; // move up to make space
-                newBalls[position - 1] = ball;
+                newBalls[position] = newBalls[position - 1]; // move up to make space                
                 position--;
             }
+            newBalls[position] = ball;
 
             balls = newBalls;
         } 
