@@ -7,16 +7,12 @@ using System.Threading.Tasks;
 namespace Rack
 {
     public class Rack : IRack
-    {
-        private HashSet<int> balls;
+    {        
         private const int SIZE = 7;
         private const int BALL_MIN = 1;
-        private const int BALL_MAX = 49;       
-
-        public Rack()
-        {
-            this.balls = new HashSet<int>();
-        }
+        private const int BALL_MAX = 49;
+        private HashSet<int> balls = new HashSet<int>();  // using SortSet<int> is boring... and maybe a overkill
+        
         public void AddBall(int ball)
         {
             if (ball < BALL_MIN || ball > BALL_MAX)
@@ -42,7 +38,7 @@ namespace Rack
             while (startPosition < orderedBalls.Length - 1)
             for (int position = startPosition; position < orderedBalls.Length-1; position++)
             {
-                // check if item[x] is bigger than item[x+1] and switch values if true
+                // check if ball[x] is bigger than ball[x+1] and switch them if true
                 if (orderedBalls[position] > orderedBalls[position + 1])
                 {
                     int temp = orderedBalls[position + 1]; // store B apart
