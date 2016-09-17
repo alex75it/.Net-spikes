@@ -75,12 +75,12 @@ namespace Spikes.Tests
             R.Rack rack = new R.Rack();
 
             rack.AddBall(3);
-            rack.AddBall(2);
+            rack.AddBall(4);                    
             rack.AddBall(1);
+            rack.AddBall(2);
 
-            var balls = rack.Balls().ToList();
-            balls[0].ShouldEqual(1);
-            balls[1].ShouldEqual(2);
+            var balls = rack.Balls().ToArray();
+            balls.ShouldEqual(new SortedSet<int>(balls).ToArray());            
         }
     }
 }

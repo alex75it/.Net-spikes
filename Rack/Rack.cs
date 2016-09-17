@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rack
 {
     public class Rack : IRack
-    {
-       
+    {       
         private const int SIZE = 7;
         private const int BALL_MIN = 1;
         private const int BALL_MAX = 49;   
@@ -27,11 +24,10 @@ namespace Rack
                 throw new Exception($"There must not be more than {SIZE} balls on the rack.");
 
             // insert the ball in the correct position (bubbling other balls up) or in the empty slot
-            int position = emptySlot;
+            int position = emptySlot++;
             while (position > 0 && balls[position-1] > ball)
-                balls[position--] = balls[position]; // move ball up
+                balls[position] = balls[--position]; // move ball up
             balls[position] = ball;
-            emptySlot++;
         }
 
         public IEnumerable<int> Balls()
