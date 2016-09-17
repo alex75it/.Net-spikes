@@ -25,32 +25,26 @@ namespace Rack
                 throw new Exception($"There must not be more than {SIZE} balls on the rack.");
 
             balls.Add(ball);
+            Sort(ball);
         }
 
         public IEnumerable<int> Balls()
         {
-            return Sort(balls);
+            return balls;
         }
-        internal IEnumerable<int> Sort(IEnumerable<int> balls)
+        private void Sort(int ball)
         {
             int[] orderedBalls = balls.ToArray();
-            int startPosition = 0;
-            while (startPosition < orderedBalls.Length - 1)
-            for (int position = startPosition; position < orderedBalls.Length-1; position++)
+
+            int position = orderedBalls.Length - 1;
+            while (position > 0 && ball < orderedBalls[position-1] )
             {
-                // check if ball[x] is bigger than ball[x+1] and switch them if true
-                if (orderedBalls[position] > orderedBalls[position + 1])
-                {
-                    int temp = orderedBalls[position + 1]; // store B apart
-                    orderedBalls[position + 1] = orderedBalls[position]; // move A in B
-                    orderedBalls[position] = temp; // move B in A
-                }
-                else
-                {
-                    startPosition++;
-                }
-            }
-            return orderedBalls;
+                orderedBalls[position] = orderedBalls[position-1]; // move ball up
+                orderedBalls[position-1] = ball; // positioning the new ball
+                position--;
+            }                
+
+            balls = new HashSet<int>(orderedBalls);
         }
     }
 }
