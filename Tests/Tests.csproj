@@ -83,6 +83,7 @@
   <ItemGroup>
     <Compile Include="Couchbase\CouchbaseSpikeTest.cs" />
     <Compile Include="DefaultSpikeTest.cs" />
+    <Compile Include="NHibernate\NHibernateSpikeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +100,10 @@
     <ProjectReference Include="..\Couchbase\Couchbase.csproj">
       <Project>{e294e3d7-b7e4-4f85-9312-3530f102128f}</Project>
       <Name>Couchbase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NHibernate\NHibernate.csproj">
+      <Project>{ea8aa8fb-7210-48bd-8ceb-9326be9b276b}</Project>
+      <Name>NHibernate</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
