@@ -15,7 +15,13 @@ namespace Spikes.Tests.NHibernate
         {
             Assert.Fail("not already implemented");
 
+            int numberOfExecutedSelect = GetSqlQueryes();
+        }
 
+        private int GetSqlQueryes()
+        {
+            obtain the SQL commands executed
+            throw new NotImplementedException();            
         }
     }
 }
