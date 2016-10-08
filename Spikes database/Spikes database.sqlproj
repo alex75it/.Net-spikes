@@ -60,5 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Category.sql" />
+    <Build Include="Subcategory.sql" />
   </ItemGroup>
 </Project>
