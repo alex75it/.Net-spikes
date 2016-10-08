@@ -15,6 +15,7 @@ namespace Spikes.Tests
         public void Run()
         {
             DefaultSpike spike = new DefaultSpike();
+            string name = spike.GetName();
             spike.Run();
             Assert.Pass();
         }
