@@ -34,6 +34,10 @@
       <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="monei.Core, Version=1.0.4.0, Culture=en-US, processorArchitecture=MSIL">
+      <HintPath>..\packages\monei.Core.1.0.4\lib\net451\monei.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
@@ -48,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CategoryRepository.cs" />
     <Compile Include="NHibernateSpike.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -9,6 +9,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using Should;
+using Spikes.NHibernate;
 
 namespace Spikes.Tests.NHibernate
 {
@@ -24,8 +25,8 @@ namespace Spikes.Tests.NHibernate
 
             queriesBefore.Count.ShouldEqual(0, "Initial number of queries should be zero.");
 
-            //...
-
+            // Act
+            var categories = new CategoryRepository().List();
 
             var queriesAfter = GetSqlQueries(textToSearch, fromTime);
             var newQueries = queriesAfter.Select(q => queriesBefore.Any(qb => qb.Item1 == q.Item1)).ToList();
