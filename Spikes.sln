@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Couchbase", "Couchbase\Couc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{6DC10D9E-EE85-4171-A77E-FB83689CB35C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernate", "NHibernate\NHibernate.csproj", "{EA8AA8FB-7210-48BD-8CEB-9326BE9B276B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spikes.NHibernate", "NHibernate\Spikes.NHibernate.csproj", "{EA8AA8FB-7210-48BD-8CEB-9326BE9B276B}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Spikes database", "Spikes database\Spikes database.sqlproj", "{7406FC44-ED12-4A28-8F9C-9C8C7B0026A8}"
 EndProject

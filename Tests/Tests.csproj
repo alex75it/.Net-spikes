@@ -51,8 +51,12 @@
       <HintPath>..\packages\CouchbaseNetClient.2.3.8\lib\net45\Couchbase.NetClient.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="monei.Core, Version=1.0.4.0, Culture=en-US, processorArchitecture=MSIL">
-      <HintPath>..\packages\monei.Core.1.0.4\lib\net451\monei.Core.dll</HintPath>
+    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="monei.Core, Version=1.0.4.26939, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\monei.Core.1.0.4.26939\lib\net461\monei.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Moq, Version=4.5.22.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">
@@ -61,6 +65,10 @@
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\packages\NHibernate.4.0.4.4000\lib\net40\NHibernate.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
@@ -92,6 +100,7 @@
   <ItemGroup>
     <Compile Include="Couchbase\CouchbaseSpikeTest.cs" />
     <Compile Include="DefaultSpikeTest.cs" />
+    <Compile Include="NHibernate\NHibernateMappingsTests.cs" />
     <Compile Include="NHibernate\NHibernateSpikeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,9 +119,9 @@
       <Project>{e294e3d7-b7e4-4f85-9312-3530f102128f}</Project>
       <Name>Couchbase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NHibernate\NHibernate.csproj">
+    <ProjectReference Include="..\NHibernate\Spikes.NHibernate.csproj">
       <Project>{ea8aa8fb-7210-48bd-8ceb-9326be9b276b}</Project>
-      <Name>NHibernate</Name>
+      <Name>Spikes.NHibernate</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

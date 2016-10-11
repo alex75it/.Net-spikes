@@ -1,7 +1,8 @@
 ﻿CREATE TABLE [dbo].[Category]
 (
-    [Id] INT NOT NULL PRIMARY KEY, 
-    [Code] VARCHAR(10) NOT NULL, 
-    [Name] NVARCHAR(50) NOT NULL, 
-    [CreateDate] DATETIME NOT NULL DEFAULT GetUtcDate()
+    [Id] INT NOT NULL PRIMARY KEY Identity( 1, 1),
+    [Name] nvarchar(25) not null,
+    [Description] nvarchar (250) null,
+    [CreationDate] DATETIME NOT NULL DEFAULT GetUtcDate(),
+    [LastModificationDate] datetime null
 )
