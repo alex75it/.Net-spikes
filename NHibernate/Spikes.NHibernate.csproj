@@ -65,7 +65,11 @@
       <Name>Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Entities Mappings\Subcategory.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Entities Mappings\Category.hbm.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

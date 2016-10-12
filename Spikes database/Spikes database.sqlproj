@@ -69,4 +69,7 @@
   <ItemGroup>
     <PreDeploy Include="PreDeployment.sql" />
   </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Spikes database.refactorlog" />
+  </ItemGroup>
 </Project>

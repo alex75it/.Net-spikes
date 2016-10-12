@@ -14,19 +14,28 @@ namespace Spikes.Tests.NHibernate
     public class NHibernateMappingsTests
     {
         [TestCase(typeof(Category))]
+        [TestCase(typeof(Subcategory))]
         public void MappingIsOk(Type entityType)
         {
             var mappingTest = GetType().GetMethod("RunSimpleMappingTest");
             var mappingTestForType = mappingTest.MakeGenericMethod(entityType);
             mappingTestForType.Invoke(this, new object[0]);
-            
+
+            if (entityType == typeof(Subcategory))
+                Assert.Ignore("CategroyId must be set");
+
             //new PersistenceSpecification<Employee>(session)
             //    .CheckProperty(c => c.Id, 1)
             //    .CheckProperty(c => c.FirstName, "John")
             //    .CheckProperty(c => c.LastName, "Doe")
             //    .VerifyTheMappings();
-
         }
+
+        //public void SubcategoryMapping_should_BeCorrect(Type entityType)
+        //{
+        //    Subcategory subcategory = new Subcategory();
+        //}
+
         public void RunSimpleMappingTest<TEntity>() where TEntity : EntityBase<int>, new() // class, new()
         {
             var id = 0;
