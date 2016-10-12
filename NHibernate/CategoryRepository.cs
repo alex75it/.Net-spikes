@@ -12,6 +12,12 @@ namespace Spikes.NHibernate
 {
     public class CategoryRepository
     {
+        private ISessionFactory sessionFactory;
+        public CategoryRepository(ISessionFactory sessionFactory)
+        {
+            this.sessionFactory = sessionFactory;
+        }
+
         public IEnumerable<Category> List()
         {
             IEnumerable<Category> categories = new List<Category>();
@@ -35,11 +41,6 @@ namespace Spikes.NHibernate
 
         private ISession OpenSession()
         {
-            var configuration = new global::NHibernate.Cfg.Configuration();
-            configuration.Configure(); // it fail ONLY in debug mode, just go on !
-
-            ISessionFactory sessionFactory = configuration.BuildSessionFactory();
-
             return sessionFactory.OpenSession();
         }
     }

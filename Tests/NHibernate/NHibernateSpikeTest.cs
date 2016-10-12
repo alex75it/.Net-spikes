@@ -10,30 +10,39 @@ using System.Text;
 using System.Threading.Tasks;
 using Should;
 using Spikes.NHibernate;
+using NHibernate;
 
 namespace Spikes.Tests.NHibernate
 {
     [TestFixture, Category("NHibernate")]
     public class NHibernateSpikeTest
     {
+        private CategoryRepository categoryRepository;
+        private ISessionFactory sessionFactory;
+
+        [SetUp]
+        public void Setup()
+        {
+            var configuration = new global::NHibernate.Cfg.Configuration();
+            configuration.Configure();
+
+            sessionFactory = configuration.BuildSessionFactory();
+
+            if (!sessionFactory.Statistics.IsStatisticsEnabled)
+                Assert.Ignore("Statistics should be enabled");
+
+            categoryRepository = new CategoryRepository(sessionFactory);
+        }
+
         [Test]
         public void RunQuery_should_ExecuteOnlyOneSqlQuery()
-        {            
-            string textToSearch = "Category";
-            DateTime fromTime = DateTime.Now;
-            var queriesBefore = GetSqlQueries(textToSearch, fromTime);
-
-            //queriesBefore.Count.ShouldEqual(0, "Initial number of queries should be zero.");
-
+        {   
             // Act
-            var categories = new CategoryRepository().List();
+            var categories = categoryRepository.List();
 
-            var queriesAfter = GetSqlQueries(textToSearch, fromTime);
-            var newQueries = queriesAfter.Select(q => queriesBefore.Any(qb => qb.Item1 == q.Item1)).ToList();
+            long queryCount = sessionFactory.Statistics.QueryExecutionCount;
 
-            PrintQueries(queriesAfter);
-
-            newQueries.Count.ShouldEqual(1);
+            queryCount.ShouldEqual(1);
         }
 
         private IList<Tuple<string, DateTime, string>> GetSqlQueries(string textToSearch, DateTime fromTime)
