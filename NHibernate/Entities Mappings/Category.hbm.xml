@@ -7,7 +7,7 @@
       <generator class="identity" />
     </id>
     <property name="Name" />
-    <property name="Descriptionbbb" />
+    <property name="Description" />
     <property name="CreationDate" />
     <property name="LastModificationDate" not-null="false" />
     <!--<bag name="Subcategories" table="Subcategory" lazy="false" >

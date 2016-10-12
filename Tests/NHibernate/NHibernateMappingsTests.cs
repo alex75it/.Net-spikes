@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Spikes.Tests.NHibernate
 {
-    [TestFixture]
+    [TestFixture, Category("NHibernate")]
     public class NHibernateMappingsTests
     {
         [TestCase(typeof(Category))]
@@ -33,10 +33,8 @@ namespace Spikes.Tests.NHibernate
 
             InSession(session =>
             {
-                var entity = new TEntity();
-
+                TEntity entity = CreateValidInstance<TEntity>();
                 session.Save(entity);
-                //id = (int)entity.GetPrimaryKey().Value;
                 id = entity.Id;
             });
 
@@ -56,6 +54,20 @@ namespace Spikes.Tests.NHibernate
                 action(session);
                 transaction.Commit();
             }
+        }
+
+        private static TEntity CreateValidInstance<TEntity>() where TEntity : EntityBase<int>, new()
+        {
+            var entity = new TEntity();
+
+            foreach (var p in typeof(TEntity).GetProperties(BindingFlags.Instance | BindingFlags.Public))
+            {
+                if (p.PropertyType == typeof(string))
+                    p.SetValue(entity, "");
+            }
+
+
+            return entity;
         }
     }
 }
