@@ -10,6 +10,14 @@
     <property name="Description" />
     <property name="CreationDate" />
     <property name="LastModificationDate" not-null="false" />
+
+    <list name="Subcategories" table="Subcategory" lazy="true" fetch="join" >
+      <!--collection-type="System.Collections.Generic.IList"-->
+      <key column="CategoryId"></key>
+      <index column="Id"></index>
+      <one-to-many class="Subcategory" />
+    </list>
+
     <!--<bag name="Subcategories" table="Subcategory" lazy="false" >
       -->
     <!--collection-type="System.Collections.Generic.IList"-->

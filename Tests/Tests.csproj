@@ -55,8 +55,8 @@
       <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="monei.Core, Version=1.0.4.26939, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\monei.Core.1.0.4.26939\lib\net461\monei.Core.dll</HintPath>
+    <Reference Include="monei.Core, Version=1.0.4.40988, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\monei.Core.1.0.4.40988\lib\net461\monei.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Moq, Version=4.5.23.0, Culture=neutral, PublicKeyToken=69f491c39445e920, processorArchitecture=MSIL">

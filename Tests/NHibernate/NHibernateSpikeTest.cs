@@ -35,14 +35,31 @@ namespace Spikes.Tests.NHibernate
         }
 
         [Test]
-        public void RunQuery_should_ExecuteOnlyOneSqlQuery()
-        {   
+        public void List_should_ExecuteOnlyOneSqlQuery()
+        {
             // Act
             var categories = categoryRepository.List();
 
-            long queryCount = sessionFactory.Statistics.QueryExecutionCount;
+            long queryCount = sessionFactory.Statistics.CloseStatementCount;
 
             queryCount.ShouldEqual(1);
+        }
+
+        [Test]
+        [TestCase("List")]
+        [TestCase("List_usingFetch")]
+        public void ListMerhod_should_ExecuteOnlyOneSqlQuery(string methodName)
+        {
+            MethodInfo method = typeof(CategoryRepository).GetMethod(methodName);
+            if (method == null)
+                Assert.Inconclusive($@"Method ""{methodName}"" not foud.");
+            
+            // Act
+            method.Invoke(categoryRepository, new object[0]);
+
+            long queryCount = sessionFactory.Statistics.CloseStatementCount;
+
+            queryCount.ShouldEqual(1, methodName);
         }
 
         private IList<Tuple<string, DateTime, string>> GetSqlQueries(string textToSearch, DateTime fromTime)

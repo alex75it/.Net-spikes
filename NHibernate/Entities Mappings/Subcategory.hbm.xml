@@ -11,7 +11,7 @@
     <property name="CreationDate" />
     <property name="LastModificationDate" not-null="false" />
     
-    <!--<many-to-one name="Category" column="CategoryId" class="Category" fetch="join" />-->
+    <many-to-one name="Category" column="CategoryId" class="Category" fetch="join" />
 
   </class>
 </hibernate-mapping>
