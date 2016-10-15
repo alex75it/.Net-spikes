@@ -15,3 +15,4 @@ namespace Spikes.GenericSpike
         }
     }
 }
+
