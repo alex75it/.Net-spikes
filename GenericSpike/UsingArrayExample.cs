@@ -6,41 +6,35 @@ using System.Threading.Tasks;
 
 namespace Spikes.GenericSpike
 {
-    class CaseBase
+    class UsingArrayExasmple
     {
         void Execute(Event event_)
         {
-            var relation = FetchDbRelation(event_);
-            var modification = AdjustRelationToEvent(relation, event_);
-            if(modification != null)
-                UpdateDbTable(modification);
+            var relations = FetchDbRelation(event_);
+            var modifications = AdjustRelationsToEvent(relations, event_);
+            UpdateDbTable(modifications);
         }
 
-        private Relation FetchDbRelation(Event event_)
+        private Relation[] FetchDbRelation(Event event_)
         {
             throw new NotImplementedException();
         }
 
-        Relation AdjustRelationToEvent(Relation relation, Event event_)
+        Relation[] AdjustRelationsToEvent(Relation[] relations, Event event_)
         {
-            if (relation == null)
-                return null;
-
-            if (relation.Status != event_.Status)
+            var modification = new List<Modification>();
+            foreach (var relation in relations)
             {
                 relation.Status = event_.Status;
-                return relation;
-            }
-            return null;
+                relation.Modified = true;
+            }    
+            return relations.Where(x => Modified).ToArray();
         }
 
-        void UpdateDbTable(Relation modification)
+        void UpdateDbTable(Relation[] modifications)
         {
-            if (modification == null)
-                return;
-
             //sql = "Update ....";
-            //Dapper.Execute(sql, modification);
+            //Dapper.Execute(sql, modifications);
         }
     }
 }
