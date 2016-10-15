@@ -10,25 +10,24 @@ namespace Spikes.GenericSpike
     {
         void Execute(Event event_)
         {
-            var relations = FetchDbRelation(event_);
+            var relations = FetchDbRelations(event_);
             var modifications = AdjustRelationsToEvent(relations, event_);
             UpdateDbTable(modifications);
         }
 
-        private Relation[] FetchDbRelation(Event event_)
+        private Relation[] FetchDbRelations(Event event_)
         {
             throw new NotImplementedException();
         }
 
         Relation[] AdjustRelationsToEvent(Relation[] relations, Event event_)
         {
-            var modification = new List<Modification>();
             foreach (var relation in relations)
             {
                 relation.Status = event_.Status;
-                relation.Modified = true;
+                //relation.Modified = true;
             }    
-            return relations.Where(x => Modified).ToArray();
+            return relations.Where(x => x.Modified).ToArray();
         }
 
         void UpdateDbTable(Relation[] modifications)
