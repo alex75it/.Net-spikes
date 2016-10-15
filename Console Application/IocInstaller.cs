@@ -1,6 +1,7 @@
 ﻿using Ninject;
 using Spikes.Common;
 using Spikes.Couchbase;
+using Spikes.GenericSpike;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,8 +17,9 @@ namespace Spikes.Console
         public static void Initialize()
         {
             kernel = new StandardKernel();
-            kernel.Bind<ISpike>().To<DefaultSpike>();  
+            //kernel.Bind<ISpike>().To<DefaultSpike>();
             //kernel.Bind<ISpike>().To<CouchbaseSpike>();
+            kernel.Bind<ISpike>().To<QuickSpike>();
         }
 
         public static SpikeRunner CreateSpikeRunner()
