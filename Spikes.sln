@@ -17,6 +17,8 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Spikes database", "Spikes d
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericSpike", "GenericSpike\GenericSpike.csproj", "{783D3101-7D3C-4826-B7B2-64421578CC56}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Sorting Algorithms\Algorithms.csproj", "{1E358958-98DA-4768-99BD-5D4E8DBEF711}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{783D3101-7D3C-4826-B7B2-64421578CC56}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{783D3101-7D3C-4826-B7B2-64421578CC56}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{783D3101-7D3C-4826-B7B2-64421578CC56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E358958-98DA-4768-99BD-5D4E8DBEF711}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E358958-98DA-4768-99BD-5D4E8DBEF711}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E358958-98DA-4768-99BD-5D4E8DBEF711}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E358958-98DA-4768-99BD-5D4E8DBEF711}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,4 +1,5 @@
 ﻿using Ninject;
+using Spikes.Algorithms.Sorting;
 using Spikes.Common;
 using Spikes.Couchbase;
 using Spikes.GenericSpike;
@@ -19,7 +20,8 @@ namespace Spikes.Console
             kernel = new StandardKernel();
             //kernel.Bind<ISpike>().To<DefaultSpike>();
             //kernel.Bind<ISpike>().To<CouchbaseSpike>();
-            kernel.Bind<ISpike>().To<QuickSpike>();
+            //kernel.Bind<ISpike>().To<QuickSpike>();
+            kernel.Bind<ISpike>().To<SortingSpike>();
         }
 
         public static SpikeRunner CreateSpikeRunner()
