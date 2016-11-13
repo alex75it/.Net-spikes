@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace Spikes.Algorithms.Sorting
 {
-    public class BubbleSort
-    {
 
+    internal interface ICanSort
+    {
+        void Sort<T>(T[] array) where T: IComparable<T>;
     }
 }

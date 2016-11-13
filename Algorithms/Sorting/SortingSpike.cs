@@ -11,7 +11,8 @@ namespace Spikes.Algorithms.Sorting
     {
         public override void Run()
         {
-            throw new NotImplementedException();
+            ICanSort sorting =new  BubbleSort();
+                        
         }
     }
 }

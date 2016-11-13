@@ -17,7 +17,7 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Spikes database", "Spikes d
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericSpike", "GenericSpike\GenericSpike.csproj", "{783D3101-7D3C-4826-B7B2-64421578CC56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Sorting Algorithms\Algorithms.csproj", "{1E358958-98DA-4768-99BD-5D4E8DBEF711}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Algorithms", "Algorithms\Algorithms.csproj", "{1E358958-98DA-4768-99BD-5D4E8DBEF711}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
