@@ -7,18 +7,21 @@ using System.Threading.Tasks;
 
 namespace Spikes.Algorithms.Sorting
 {
-    public class BubbleSort<T> : ICanSort<T>, ICanSort
+    public class BubbleSort : ICanSort
     {
-        public void Sort(object[] array)
-        {
-            this.Sort<object>(array);
-        }
-
-        public void Sort(T[] array)
+        public void Sort<T>(T[] array) where T: IComparable<T>
         {
             for (int i = 0; i < array.Length - 1; i++)
             {
-
+                for (int j = array.Length - 1; j > 1; j--)
+                {
+                    if (array[j - 1].CompareTo(array[j]) > 0)
+                    {
+                        T temp = array[j - 1];
+                        array[j - 1] = array[j];
+                        array[j] = temp;
+                    }
+                }
             }
         }
     }

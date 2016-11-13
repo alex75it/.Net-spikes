@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Spikes.Console
 {
@@ -15,7 +14,14 @@ namespace Spikes.Console
 
             SpikeRunner spikeRunner = GetSpikeRunner();
             System.Console.Write(string.Format("Spike: {0}.", spikeRunner.SpikeName));
-            spikeRunner.RunSpike();
+            try
+            {
+                spikeRunner.RunSpike();
+            }
+            catch (Exception exc)
+            {
+                System.Console.WriteLine("ERROR. " + exc.Message);
+            }
 
             if (spikeRunner.IsDefaultSpike)
             {
