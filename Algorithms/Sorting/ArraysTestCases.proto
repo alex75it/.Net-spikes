@@ -1,9 +1,0 @@
-﻿syntax = "proto3";
-package Sorting
-option cshasp_namespace = "Spikes.Algorithms.Sorting";
-
-message ArrayTestCases {
-    repeated int32 value
-
-	message 
-}

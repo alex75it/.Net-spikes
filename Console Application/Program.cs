@@ -13,7 +13,8 @@ namespace Spikes.Console
             IocInstaller.Initialize();
 
             SpikeRunner spikeRunner = GetSpikeRunner();
-            System.Console.Write(string.Format("Spike: {0}.", spikeRunner.SpikeName));
+            System.Console.WriteLine(string.Format("Spike: {0}.", spikeRunner.SpikeName));
+
             try
             {
                 spikeRunner.RunSpike();

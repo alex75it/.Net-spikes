@@ -14,14 +14,28 @@ namespace Spikes.Algorithms.Sorting
     {
 
         public const int TEST_ARRAY_LENGTH = 5;
+        public const int MAX_VALUE_IN_ARRAY = 1000; // to be human readable
+
         public override void Run()
         {
-            ICanSort sorting =new  BubbleSort();
+            ICanSort sorting = new BubbleSort();
             
             foreach(var array in GetTestArrays(10))
             {
-
+                Write("Initial: " + string.Join(", ", array));
+                sorting.Sort(array);
+                Write("Sorted: " + string.Join(", ", array));
             }            
+        }
+
+        private void Write(string message)
+        {
+            Console.WriteLine(message);
+        }
+
+        private void Show(int[] array)
+        {
+            Console.WriteLine(string.Join(", ", array));
         }
 
         private IEnumerable<int[]> GetTestArrays(int numberOfCases)
@@ -58,7 +72,7 @@ namespace Spikes.Algorithms.Sorting
                 int position = 0;
                 while (position < TEST_ARRAY_LENGTH)
                 {
-                    array[position++] = random.Next();
+                    array[position++] = random.Next(MAX_VALUE_IN_ARRAY);
                 }
                 arrays.Add(array);
             }

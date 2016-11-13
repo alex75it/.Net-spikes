@@ -16,7 +16,7 @@ namespace Spikes.Console
         }
 
         public object SpikeName { get { return spike.GetName(); } }
-                public bool IsDefaultSpike
+        public bool IsDefaultSpike
         {
             get { return spike is DefaultSpike; }
         }
