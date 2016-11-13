@@ -19,13 +19,20 @@ namespace Spikes.Algorithms.Sorting
         public override void Run()
         {
             ICanSort sorting = new BubbleSort();
-            
-            foreach(var array in GetTestArrays(10))
+
+            sorting.Swap += (sender, ev) => Write(string.Format("swap {0} <-> {1}", ev.ValueA, ev.ValueB));
+
+            foreach (var array in GetTestArrays(10))
             {
                 Write("Initial: " + string.Join(", ", array));
                 sorting.Sort(array);
                 Write("Sorted: " + string.Join(", ", array));
             }            
+        }
+
+        private void Sorting_Swap(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void Write(string message)
